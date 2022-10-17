@@ -1,0 +1,44 @@
+ # ***DAT - Brief 6 : Kubernetes Raja***
+ 
+ ## ***1. Topologie***
+ 
+ ```mermaid 
+
+graph TD
+    A[Client] --> B[Fournisseur] 
+    B[Fournisseur] -->|DNS| C(Web)
+    C(Web) --> | Microsoft Azure | D[App Gateway]
+    R(Disk) --> | PVC | P(REDIS)
+    D[App Gateway] --> H(NODES) 
+    subgraph Cluster
+    H -->|Un| I[Node]
+    H -->|Deux| L[Node]
+    H -->|Trois| M[Node]
+    H -->|Quatre| N[Node]    
+    I[node]--> |HorizontalPodAutoscaler| O{APP.VOTE}
+    N[node]--> P{REDIS}
+   
+
+end 
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Résultat 
+
+<img width="850" alt="Résultat" src="https://user-images.githubusercontent.com/108053084/196186146-88655fe7-f535-4cfc-8e0e-b22ad1c7dc34.PNG">
